@@ -25,6 +25,11 @@ public class CategoryDAO {
 		return resultList;
 	}
 	
+	public Category getCategoryById(long id){
+		Category category = em.find(Category.class, id);
+		return category;
+	}
+	
 	/*
 	 * Transactional methods
 	 */
@@ -32,6 +37,25 @@ public class CategoryDAO {
 	@Transactional
 	public Category createCategory(Category category){
 		em.persist(category);
+		return category;
+	}
+	
+	@Transactional
+	public void deleteCategory(long id) {
+		Category category = getCategoryById(id);
+
+		if (category != null) {
+			em.remove(category);
+		}
+	}
+	
+	@Transactional
+	public Category updateCategory(long id, Category newCategory){
+		Category category = getCategoryById(id);
+		
+		category.setName(newCategory.getName());
+		
+		em.merge(category);
 		return category;
 	}
 }
