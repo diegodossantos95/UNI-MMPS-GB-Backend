@@ -12,41 +12,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.diegodossantos95.mmps.dao.CategoryDAO;
-import com.diegodossantos95.mmps.model.Category;
+import com.diegodossantos95.mmps.dao.ProcessAreaDAO;
+import com.diegodossantos95.mmps.model.ProcessArea;
 
 @Controller
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/process-area")
+public class ProcessAreaController {
 
 	@Autowired
-	private CategoryDAO categoryDao;
+	private ProcessAreaDAO processAreaDao;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody Collection<Category> findAll() {
-		return categoryDao.getAllCategory();
+	public @ResponseBody Collection<ProcessArea> findAll() {
+		return processAreaDao.getAllProcessArea();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody Category findById(@PathVariable long id) {
-		return categoryDao.getCategoryById(id);
+	public @ResponseBody ProcessArea findById(@PathVariable long id) {
+		return processAreaDao.getProcessAreaById(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public @ResponseBody Category create(@RequestBody Category category) {
-		return categoryDao.createCategory(category);
+	public @ResponseBody ProcessArea create(@RequestBody ProcessArea processArea) {
+		return processAreaDao.createProcessArea(processArea);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody void delete(@PathVariable long id) {
-		categoryDao.deleteCategory(id);
+		processAreaDao.deleteProcessArea(id);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody Category update(@PathVariable long id, @RequestBody Category category) {
-		return categoryDao.updateCategory(id, category);
+	public @ResponseBody ProcessArea update(@PathVariable long id, @RequestBody ProcessArea processArea) {
+		return processAreaDao.updateProcessArea(id, processArea);
 	}
 }
