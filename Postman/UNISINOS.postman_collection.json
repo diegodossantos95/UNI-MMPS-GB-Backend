@@ -1,0 +1,118 @@
+{
+	"info": {
+		"name": "UNISINOS",
+		"_postman_id": "8fa84385-bb14-0e4c-193d-145f9e357aef",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UNI-MMPS-GB-Backend/api/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UNI-MMPS-GB-Backend",
+						"api",
+						"category"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Engineer\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UNI-MMPS-GB-Backend/api/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UNI-MMPS-GB-Backend",
+						"api",
+						"category"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process area",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UNI-MMPS-GB-Backend/api/process-area",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UNI-MMPS-GB-Backend",
+						"api",
+						"process-area"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process Area",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Requirements\",\n\t\"description\": \"requirements e tals\",\n\t\"initials\": \"REQ\",\n\t\"category\": {\n\t\t\"id\":\"1\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UNI-MMPS-GB-Backend/api/process-area",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UNI-MMPS-GB-Backend",
+						"api",
+						"process-area"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
