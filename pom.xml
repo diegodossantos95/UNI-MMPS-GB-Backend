@@ -137,7 +137,7 @@
 			<plugin>
 				<groupId>com.sap.cloud</groupId>
 				<artifactId>neo-java-web-maven-plugin</artifactId>
-				<version>2.40.10.2</version>
+				<version>3.41.13</version>
 				<executions>
 					<execution>
 						<phase>install</phase>
