@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.diegodossantos95.mmps.dao.CategoryDAO;
+import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.Category;
 
 @Controller
@@ -29,7 +30,11 @@ public class CategoryController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public @ResponseBody Category findById(@PathVariable long id) {
-		return categoryDao.getCategoryById(id);
+		Category object = categoryDao.getCategoryById(id);
+		if(object == null){
+            throw new ResourceNotFoundException(); 
+		}
+		return object;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

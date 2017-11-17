@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.diegodossantos95.mmps.dao.ProcessAreaDAO;
+import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.ProcessArea;
 
 @Controller
@@ -29,7 +30,11 @@ public class ProcessAreaController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public @ResponseBody ProcessArea findById(@PathVariable long id) {
-		return processAreaDao.getProcessAreaById(id);
+		ProcessArea object = processAreaDao.getProcessAreaById(id);
+		if(object == null){
+            throw new ResourceNotFoundException(); 
+		}
+		return object;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
