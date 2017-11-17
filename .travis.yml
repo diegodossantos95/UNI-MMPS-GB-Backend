@@ -1,6 +1,6 @@
 language: java
 jdk:
-- openjdk7
+- oraclejdk8
 after_script:
   - if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]]; then bash .travis/push unimmpsgbbackend || exit $?; fi
 notifications:
