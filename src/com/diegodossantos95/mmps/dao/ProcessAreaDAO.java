@@ -54,6 +54,9 @@ public class ProcessAreaDAO {
 		ProcessArea processArea = getProcessAreaById(id);
 		
 		processArea.setName(newProcessArea.getName());
+		processArea.setDescription(newProcessArea.getDescription());
+		processArea.setInitials(newProcessArea.getInitials());
+		processArea.setCategory(newProcessArea.getCategory());
 		
 		em.merge(processArea);
 		return processArea;
