@@ -1,4 +1,4 @@
-# UNI-MMPS-GB-Backend
+# UNI-MMPS-GB-Backend [![Build Status](https://travis-ci.org/diegodossantos95/UNI-MMPS-GB-Backend.svg?branch=master)](https://travis-ci.org/diegodossantos95/UNI-MMPS-GB-Backend)
 ferramenta que permita cadastrar e visualizar informações de um modelo de referência de processo de software
 
 # Configurar ambiente local
