@@ -17,7 +17,7 @@ import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.WorkProduct;
 
 @Controller
-@RequestMapping("/work-product")
+@RequestMapping("/workProduct")
 public class WorkProductController {
 	@Autowired
 	private WorkProductDAO WorkProductDAO;

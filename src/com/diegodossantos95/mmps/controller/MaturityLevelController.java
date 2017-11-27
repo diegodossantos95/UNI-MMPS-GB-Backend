@@ -17,7 +17,7 @@ import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.MaturityLevel;
 
 @Controller
-@RequestMapping("/maturity-level")
+@RequestMapping("/maturityLevel")
 public class MaturityLevelController {
 
 	@Autowired

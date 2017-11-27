@@ -17,7 +17,7 @@ import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.GenericGoal;
 
 @Controller
-@RequestMapping("/generic-goal")
+@RequestMapping("/genericGoal")
 public class GenericGoalController {
 
 	@Autowired

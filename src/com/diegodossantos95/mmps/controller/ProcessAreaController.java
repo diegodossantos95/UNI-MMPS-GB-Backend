@@ -17,7 +17,7 @@ import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.ProcessArea;
 
 @Controller
-@RequestMapping("/process-area")
+@RequestMapping("/processArea")
 public class ProcessAreaController {
 
 	@Autowired

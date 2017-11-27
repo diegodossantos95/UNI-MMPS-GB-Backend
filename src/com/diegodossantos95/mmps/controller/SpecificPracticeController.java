@@ -17,7 +17,7 @@ import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.SpecificPractice;
 
 @Controller
-@RequestMapping("/specific-practice")
+@RequestMapping("/specificPractice")
 public class SpecificPracticeController {
 
 	@Autowired

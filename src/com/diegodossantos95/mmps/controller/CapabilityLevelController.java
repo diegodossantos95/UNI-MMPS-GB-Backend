@@ -17,7 +17,7 @@ import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
 import com.diegodossantos95.mmps.model.CapabilityLevel;
 
 @Controller
-@RequestMapping("/capability-level")
+@RequestMapping("/capabilityLevel")
 public class CapabilityLevelController {
 
 	@Autowired
