@@ -1,9 +1,14 @@
 package com.diegodossantos95.mmps.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Model {
@@ -19,6 +24,10 @@ public class Model {
 	
 	@Column(nullable = false)
 	private String initials;
+	
+	@OneToMany(mappedBy="model")
+	@JsonIgnoreProperties({"model"})
+	private List<ProcessArea> processAreas;
 
 	public long getId() {
 		return id;
@@ -50,5 +59,13 @@ public class Model {
 
 	public void setInitials(String initials) {
 		this.initials = initials;
+	}
+
+	public List<ProcessArea> getProcessAreas() {
+		return processAreas;
+	}
+
+	public void setProcessAreas(List<ProcessArea> processAreas) {
+		this.processAreas = processAreas;
 	}
 }

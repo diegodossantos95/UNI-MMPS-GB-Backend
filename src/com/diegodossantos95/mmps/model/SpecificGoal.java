@@ -1,11 +1,16 @@
 package com.diegodossantos95.mmps.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class SpecificGoal {
@@ -26,6 +31,10 @@ public class SpecificGoal {
 	@ManyToOne
 	@JoinColumn
 	private ProcessArea processArea;
+	
+	@OneToMany(mappedBy="specificGoal")
+	@JsonIgnoreProperties({"specificGoal"})
+	private List<SpecificPractice> specificPractices;
 
 	public long getId() {
 		return id;
@@ -65,5 +74,13 @@ public class SpecificGoal {
 
 	public void setProcessArea(ProcessArea processArea) {
 		this.processArea = processArea;
+	}
+
+	public List<SpecificPractice> getSpecificPractices() {
+		return specificPractices;
+	}
+
+	public void setSpecificPractices(List<SpecificPractice> specificPractices) {
+		this.specificPractices = specificPractices;
 	}
 }

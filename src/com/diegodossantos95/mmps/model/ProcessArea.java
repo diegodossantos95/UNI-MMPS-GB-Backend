@@ -1,11 +1,16 @@
 package com.diegodossantos95.mmps.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class ProcessArea {
@@ -25,6 +30,7 @@ public class ProcessArea {
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnoreProperties({"processAreas"})
 	private Model model;
 	
 	@ManyToOne
@@ -34,6 +40,14 @@ public class ProcessArea {
 	@ManyToOne
 	@JoinColumn
 	private MaturityLevel maturityLevel;
+	
+	@OneToMany(mappedBy="processArea")
+	@JsonIgnoreProperties({"processArea"})
+	private List<SpecificGoal> specificGoals;
+	
+	@OneToMany(mappedBy="processArea")
+	@JsonIgnoreProperties({"processArea"})
+	private List<GenericGoal> genericGoals;
 
 	public long getId() {
 		return id;
@@ -89,5 +103,21 @@ public class ProcessArea {
 
 	public void setMaturityLevel(MaturityLevel maturityLevel) {
 		this.maturityLevel = maturityLevel;
+	}
+
+	public List<SpecificGoal> getSpecificGoals() {
+		return specificGoals;
+	}
+
+	public void setSpecificGoals(List<SpecificGoal> specificGoals) {
+		this.specificGoals = specificGoals;
+	}
+
+	public List<GenericGoal> getGenericGoals() {
+		return genericGoals;
+	}
+
+	public void setGenericGoals(List<GenericGoal> genericGoals) {
+		this.genericGoals = genericGoals;
 	}
 }

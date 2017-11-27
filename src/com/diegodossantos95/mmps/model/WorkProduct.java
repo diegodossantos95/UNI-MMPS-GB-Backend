@@ -1,6 +1,6 @@
 package com.diegodossantos95.mmps.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +24,7 @@ public class WorkProduct {
 
 	@ManyToMany
     @JoinTable
-	private Set<SpecificPractice> specificPractices;
+	private List<SpecificPractice> specificPractices;
 	
 	public long getId() {
 		return id;
@@ -50,11 +50,11 @@ public class WorkProduct {
 		this.link = link;
 	}
 
-	public Set<SpecificPractice> getSpecificPractices() {
+	public List<SpecificPractice> getSpecificPractices() {
 		return specificPractices;
 	}
 
-	public void setSpecificPractices(Set<SpecificPractice> specificPractices) {
+	public void setSpecificPractices(List<SpecificPractice> specificPractices) {
 		this.specificPractices = specificPractices;
 	}
 }
