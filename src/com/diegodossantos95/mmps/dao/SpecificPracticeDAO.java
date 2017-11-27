@@ -56,6 +56,7 @@ public class SpecificPracticeDAO {
 		SpecificPractice.setName(newSpecificPractice.getName());
 		SpecificPractice.setDescription(newSpecificPractice.getDescription());
 		SpecificPractice.setInitials(newSpecificPractice.getInitials());
+		SpecificPractice.setSpecificGoal(newSpecificPractice.getSpecificGoal());
 		
 		em.merge(SpecificPractice);
 		return SpecificPractice;

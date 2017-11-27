@@ -56,6 +56,7 @@ public class SpecificGoalDAO {
 		SpecificGoal.setName(newSpecificGoal.getName());
 		SpecificGoal.setDescription(newSpecificGoal.getDescription());
 		SpecificGoal.setInitials(newSpecificGoal.getInitials());
+		SpecificGoal.setProcessArea(newSpecificGoal.getProcessArea());
 		
 		em.merge(SpecificGoal);
 		return SpecificGoal;

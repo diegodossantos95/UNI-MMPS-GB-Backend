@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class SpecificPractice {
@@ -21,7 +23,10 @@ public class SpecificPractice {
 	@Column(nullable = false)
 	private String initials;
 	
-
+	@ManyToOne
+	@JoinColumn
+	private SpecificGoal specificGoal;
+	
 	public long getId() {
 		return id;
 	}
@@ -53,5 +58,12 @@ public class SpecificPractice {
 	public void setInitials(String initials) {
 		this.initials = initials;
 	}
-	
+
+	public SpecificGoal getSpecificGoal() {
+		return specificGoal;
+	}
+
+	public void setSpecificGoal(SpecificGoal specificGoal) {
+		this.specificGoal = specificGoal;
+	}
 }

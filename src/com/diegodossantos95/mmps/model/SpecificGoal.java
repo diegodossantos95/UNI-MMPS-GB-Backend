@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class SpecificGoal {
@@ -20,6 +22,10 @@ public class SpecificGoal {
 	
 	@Column(nullable = false)
 	private String initials;
+	
+	@ManyToOne
+	@JoinColumn
+	private ProcessArea processArea;
 
 	public long getId() {
 		return id;
@@ -51,5 +57,13 @@ public class SpecificGoal {
 
 	public void setInitials(String initials) {
 		this.initials = initials;
+	}
+
+	public ProcessArea getProcessArea() {
+		return processArea;
+	}
+
+	public void setProcessArea(ProcessArea processArea) {
+		this.processArea = processArea;
 	}
 }

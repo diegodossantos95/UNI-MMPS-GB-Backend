@@ -56,7 +56,9 @@ public class GenericGoalDAO {
 		GenericGoal.setName(newGenericGoal.getName());
 		GenericGoal.setDescription(newGenericGoal.getDescription());
 		GenericGoal.setInitials(newGenericGoal.getInitials());
-				
+		GenericGoal.setProcessArea(newGenericGoal.getProcessArea());
+		GenericGoal.setCapabilityLevel(newGenericGoal.getCapabilityLevel());
+		
 		em.merge(GenericGoal);
 		return GenericGoal;
 	}

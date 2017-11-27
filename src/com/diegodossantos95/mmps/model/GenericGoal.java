@@ -23,6 +23,13 @@ public class GenericGoal {
 	@Column(nullable = false)
 	private String initials;
 	
+	@ManyToOne
+	@JoinColumn
+	private CapabilityLevel capabilityLevel;
+	
+	@ManyToOne
+	@JoinColumn
+	private ProcessArea processArea;
 
 	public long getId() {
 		return id;
@@ -55,5 +62,20 @@ public class GenericGoal {
 	public void setInitials(String initials) {
 		this.initials = initials;
 	}
-	
+
+	public CapabilityLevel getCapabilityLevel() {
+		return capabilityLevel;
+	}
+
+	public void setCapabilityLevel(CapabilityLevel capabilityLevel) {
+		this.capabilityLevel = capabilityLevel;
+	}
+
+	public ProcessArea getProcessArea() {
+		return processArea;
+	}
+
+	public void setProcessArea(ProcessArea processArea) {
+		this.processArea = processArea;
+	}
 }

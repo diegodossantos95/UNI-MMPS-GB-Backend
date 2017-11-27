@@ -54,7 +54,7 @@ public class CategoryDAO {
 		Category category = getCategoryById(id);
 		
 		category.setName(newCategory.getName());
-		
+
 		em.merge(category);
 		return category;
 	}

@@ -25,7 +25,15 @@ public class ProcessArea {
 	
 	@ManyToOne
 	@JoinColumn
+	private Model model;
+	
+	@ManyToOne
+	@JoinColumn
 	private Category category;
+	
+	@ManyToOne
+	@JoinColumn
+	private MaturityLevel maturityLevel;
 
 	public long getId() {
 		return id;
@@ -59,11 +67,27 @@ public class ProcessArea {
 		this.initials = initials;
 	}
 	
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
 	public Category getCategory() {
 		return category;
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public MaturityLevel getMaturityLevel() {
+		return maturityLevel;
+	}
+
+	public void setMaturityLevel(MaturityLevel maturityLevel) {
+		this.maturityLevel = maturityLevel;
 	}
 }

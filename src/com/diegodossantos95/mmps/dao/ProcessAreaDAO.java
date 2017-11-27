@@ -57,6 +57,7 @@ public class ProcessAreaDAO {
 		processArea.setDescription(newProcessArea.getDescription());
 		processArea.setInitials(newProcessArea.getInitials());
 		processArea.setCategory(newProcessArea.getCategory());
+		processArea.setMaturityLevel(newProcessArea.getMaturityLevel());
 		
 		em.merge(processArea);
 		return processArea;
