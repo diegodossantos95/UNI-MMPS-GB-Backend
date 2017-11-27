@@ -24,7 +24,7 @@ public class WorkProduct {
 
 	@ManyToMany
     @JoinTable
-	private Set<SpecificGoal> specificGoals;
+	private Set<SpecificPractice> specificPractices;
 	
 	public long getId() {
 		return id;
@@ -50,11 +50,11 @@ public class WorkProduct {
 		this.link = link;
 	}
 
-	public Set<SpecificGoal> getSpecificGoals() {
-		return specificGoals;
+	public Set<SpecificPractice> getSpecificPractices() {
+		return specificPractices;
 	}
 
-	public void setSpecificGoals(Set<SpecificGoal> specificGoals) {
-		this.specificGoals = specificGoals;
+	public void setSpecificPractices(Set<SpecificPractice> specificPractices) {
+		this.specificPractices = specificPractices;
 	}
 }

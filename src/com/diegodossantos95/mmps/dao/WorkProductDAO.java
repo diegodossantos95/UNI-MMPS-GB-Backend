@@ -55,7 +55,7 @@ public class WorkProductDAO {
 		
 		WorkProduct.setName(newWorkProduct.getName());
 		WorkProduct.setLink(newWorkProduct.getLink());
-		WorkProduct.setSpecificGoals(newWorkProduct.getSpecificGoals());
+		WorkProduct.setSpecificPractices(newWorkProduct.getSpecificPractices());
 		
 		em.merge(WorkProduct);
 		return WorkProduct;
