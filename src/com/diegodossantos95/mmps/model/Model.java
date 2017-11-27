@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Model {
@@ -52,13 +50,5 @@ public class Model {
 
 	public void setInitials(String initials) {
 		this.initials = initials;
-	}
-	
-	public Model getModel() {
-		return model;
-	}
-
-	public void setModel(Model model) {
-		this.model = model;
 	}
 }

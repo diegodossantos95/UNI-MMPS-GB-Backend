@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.diegodossantos95.mmps.dao.EspecificMetaDAO;
+import com.diegodossantos95.mmps.dao.GenericGoalDAO;
 import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
-import com.diegodossantos95.mmps.model.EspecificMeta;
+import com.diegodossantos95.mmps.model.GenericGoal;
 
 @Controller
-@RequestMapping("/especific-meta")
-public class EspecificMetaController {
+@RequestMapping("/generic-goal")
+public class GenericGoalController {
 
 	@Autowired
-	private EspecificMetaDAO especificMetaDao;
+	private GenericGoalDAO genericGoalDAO;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody Collection<EspecificMeta> findAll() {
-		return especificMetaDao.getAllEspecificMeta();
+	public @ResponseBody Collection<GenericGoal> findAll() {
+		return genericGoalDAO.getAllGenericGoal();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody EspecificMeta findById(@PathVariable long id) {
-		EspecificMeta object = especificMetaDao.getEspecificMetaById(id);
+	public @ResponseBody GenericGoal findById(@PathVariable long id) {
+		GenericGoal object = genericGoalDAO.getGenericGoalById(id);
 		if(object == null){
             throw new ResourceNotFoundException(); 
 		}
@@ -39,19 +39,19 @@ public class EspecificMetaController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public @ResponseBody EspecificMeta create(@RequestBody EspecificMeta especificMeta) {
-		return especificMetaDao.createEspecificMeta(especificMeta);
+	public @ResponseBody GenericGoal create(@RequestBody GenericGoal genericGoal) {
+		return genericGoalDAO.createGenericGoal(genericGoal);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody void delete(@PathVariable long id) {
-		especificMetaDao.deleteEspecificMeta(id);
+		genericGoalDAO.deleteGenericGoal(id);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody EspecificMeta update(@PathVariable long id, @RequestBody EspecificMeta especificMeta) {
-		return especificMetaDao.updateEspecificMeta(id, especificMeta);
+	public @ResponseBody GenericGoal update(@PathVariable long id, @RequestBody GenericGoal genericMeta) {
+		return genericGoalDAO.updateGenericGoal(id, genericMeta);
 	}
 }

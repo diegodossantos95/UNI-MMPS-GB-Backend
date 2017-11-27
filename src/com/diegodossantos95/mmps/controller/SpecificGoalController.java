@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.diegodossantos95.mmps.dao.EspecificPraticeDAO;
+import com.diegodossantos95.mmps.dao.SpecificGoalDAO;
 import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
-import com.diegodossantos95.mmps.model.EspecificPratice;
+import com.diegodossantos95.mmps.model.SpecificGoal;
 
 @Controller
-@RequestMapping("/especific-pratice")
-public class EspecificPraticeController {
+@RequestMapping("/specific-goal")
+public class SpecificGoalController {
 
 	@Autowired
-	private EspecificPraticeDAO especificPraticeDao;
+	private SpecificGoalDAO specificGoalDao;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody Collection<EspecificPratice> findAll() {
-		return especificPraticeDao.getAllEspecificPratice();
+	public @ResponseBody Collection<SpecificGoal> findAll() {
+		return specificGoalDao.getAllSpecificGoal();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody EspecificPratice findById(@PathVariable long id) {
-		EspecificPratice object = especificPraticeDao.getEspecificPraticeById(id);
+	public @ResponseBody SpecificGoal findById(@PathVariable long id) {
+		SpecificGoal object = specificGoalDao.getSpecificGoalById(id);
 		if(object == null){
             throw new ResourceNotFoundException(); 
 		}
@@ -39,19 +39,19 @@ public class EspecificPraticeController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public @ResponseBody EspecificPratice create(@RequestBody EspecificPratice especificPratice) {
-		return especificPraticeDao.createEspecificPratice(especificPratice);
+	public @ResponseBody SpecificGoal create(@RequestBody SpecificGoal SpecificGoal) {
+		return specificGoalDao.createSpecificGoal(SpecificGoal);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody void delete(@PathVariable long id) {
-		especificPraticeDao.deleteProcessArea(id);
+		specificGoalDao.deleteSpecificGoal(id);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody EspecificPratice update(@PathVariable long id, @RequestBody EspecificPratice especificPratice) {
-		return especificPraticeDao.updateEspecificPratice(id, especificPratice);
+	public @ResponseBody SpecificGoal update(@PathVariable long id, @RequestBody SpecificGoal SpecificGoal) {
+		return specificGoalDao.updateSpecificGoal(id, SpecificGoal);
 	}
 }

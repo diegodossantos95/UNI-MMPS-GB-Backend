@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.diegodossantos95.mmps.dao.GenericMetaDAO;
+import com.diegodossantos95.mmps.dao.SpecificPracticeDAO;
 import com.diegodossantos95.mmps.exception.ResourceNotFoundException;
-import com.diegodossantos95.mmps.model.GenericMeta;
+import com.diegodossantos95.mmps.model.SpecificPractice;
 
 @Controller
-@RequestMapping("/genericmeta")
-public class GenericMetaController {
+@RequestMapping("/specific-practice")
+public class SpecificPracticeController {
 
 	@Autowired
-	private GenericMetaDAO genericMetaDAO;
+	private SpecificPracticeDAO SpecificPracticeDao;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody Collection<GenericMeta> findAll() {
-		return genericMetaDAO.getAllGenericMeta();
+	public @ResponseBody Collection<SpecificPractice> findAll() {
+		return SpecificPracticeDao.getAllSpecificPractice();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody GenericMeta findById(@PathVariable long id) {
-		GenericMeta object = genericMetaDAO.getGenericMetaById(id);
+	public @ResponseBody SpecificPractice findById(@PathVariable long id) {
+		SpecificPractice object = SpecificPracticeDao.getSpecificPracticeById(id);
 		if(object == null){
             throw new ResourceNotFoundException(); 
 		}
@@ -39,19 +39,19 @@ public class GenericMetaController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public @ResponseBody GenericMeta create(@RequestBody GenericMeta processArea) {
-		return genericMetaDAO.createGenericMeta(genericMeta);
+	public @ResponseBody SpecificPractice create(@RequestBody SpecificPractice SpecificPractice) {
+		return SpecificPracticeDao.createSpecificPractice(SpecificPractice);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody void delete(@PathVariable long id) {
-		genericMetaDAO.deleteGenericMeta(id);
+		SpecificPracticeDao.deleteSpecificPractice(id);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody GenericMeta update(@PathVariable long id, @RequestBody GenericMeta genericMeta) {
-		return genericMetaDAO.updateGenericMeta(id, genericMeta);
+	public @ResponseBody SpecificPractice update(@PathVariable long id, @RequestBody SpecificPractice SpecificPractice) {
+		return SpecificPracticeDao.updateSpecificPractice(id, SpecificPractice);
 	}
 }

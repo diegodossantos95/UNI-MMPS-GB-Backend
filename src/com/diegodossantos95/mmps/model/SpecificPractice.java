@@ -4,11 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class EspecificMeta {
+public class SpecificPractice {
 
 	@Id
 	@GeneratedValue
@@ -22,6 +20,7 @@ public class EspecificMeta {
 	
 	@Column(nullable = false)
 	private String initials;
+	
 
 	public long getId() {
 		return id;

@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class EspecifiPratice {
+public class GenericGoal {
 
 	@Id
 	@GeneratedValue
