@@ -30,6 +30,7 @@ public class SpecificPractice {
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnoreProperties({"processArea","specificPractices"})
 	private SpecificGoal specificGoal;
 	
 	@ManyToMany(mappedBy="specificPractices")
@@ -74,5 +75,13 @@ public class SpecificPractice {
 
 	public void setSpecificGoal(SpecificGoal specificGoal) {
 		this.specificGoal = specificGoal;
+	}
+
+	public List<WorkProduct> getWorkProducts() {
+		return workProducts;
+	}
+
+	public void setWorkProducts(List<WorkProduct> workProducts) {
+		this.workProducts = workProducts;
 	}
 }

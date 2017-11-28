@@ -6,8 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class WorkProduct {
@@ -23,7 +26,8 @@ public class WorkProduct {
 	private String link;
 
 	@ManyToMany
-    @JoinTable
+	@JoinTable
+	@JsonIgnoreProperties({"specificGoal"})
 	private List<SpecificPractice> specificPractices;
 	
 	public long getId() {
