@@ -31,8 +31,8 @@ public class GenericGoal {
 	
 	@ManyToOne
 	@JoinColumn
-	@JsonIgnoreProperties({"model", "category","maturityLevel", "specificGoals", "genericGoals"})
-	private ProcessArea processArea;
+	@JsonIgnoreProperties({"genericGoals"})
+	private Model model;
 
 	public long getId() {
 		return id;
@@ -74,11 +74,11 @@ public class GenericGoal {
 		this.capabilityLevel = capabilityLevel;
 	}
 
-	public ProcessArea getProcessArea() {
-		return processArea;
+	public Model getModel() {
+		return model;
 	}
 
-	public void setProcessArea(ProcessArea processArea) {
-		this.processArea = processArea;
+	public void setModel(Model model) {
+		this.model = model;
 	}
 }

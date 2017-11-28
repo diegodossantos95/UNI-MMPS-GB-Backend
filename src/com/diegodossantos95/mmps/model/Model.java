@@ -4,11 +4,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Model {
@@ -25,9 +24,11 @@ public class Model {
 	@Column(nullable = false)
 	private String initials;
 	
-	@OneToMany(mappedBy="model")
-	@JsonIgnoreProperties({"model"})
+	@OneToMany(mappedBy="model", fetch=FetchType.EAGER)
 	private List<ProcessArea> processAreas;
+	
+	@OneToMany(mappedBy="model", fetch=FetchType.EAGER)
+	private List<GenericGoal> genericGoals;
 
 	public long getId() {
 		return id;
@@ -67,5 +68,13 @@ public class Model {
 
 	public void setProcessAreas(List<ProcessArea> processAreas) {
 		this.processAreas = processAreas;
+	}
+	
+	public List<GenericGoal> getGenericGoals() {
+		return genericGoals;
+	}
+
+	public void setGenericGoals(List<GenericGoal> genericGoals) {
+		this.genericGoals = genericGoals;
 	}
 }

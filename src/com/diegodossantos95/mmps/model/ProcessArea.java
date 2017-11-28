@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -41,13 +42,9 @@ public class ProcessArea {
 	@JoinColumn
 	private MaturityLevel maturityLevel;
 	
-	@OneToMany(mappedBy="processArea")
+	@OneToMany(mappedBy="processArea", fetch=FetchType.EAGER)
 	@JsonIgnoreProperties({"processArea"})
 	private List<SpecificGoal> specificGoals;
-	
-	@OneToMany(mappedBy="processArea")
-	@JsonIgnoreProperties({"processArea"})
-	private List<GenericGoal> genericGoals;
 
 	public long getId() {
 		return id;
@@ -111,13 +108,5 @@ public class ProcessArea {
 
 	public void setSpecificGoals(List<SpecificGoal> specificGoals) {
 		this.specificGoals = specificGoals;
-	}
-
-	public List<GenericGoal> getGenericGoals() {
-		return genericGoals;
-	}
-
-	public void setGenericGoals(List<GenericGoal> genericGoals) {
-		this.genericGoals = genericGoals;
 	}
 }

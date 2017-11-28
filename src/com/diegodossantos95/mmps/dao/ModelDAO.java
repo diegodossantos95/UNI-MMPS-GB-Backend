@@ -56,6 +56,7 @@ public class ModelDAO {
 		model.setName(newModel.getName());
 		model.setDescription(newModel.getDescription());
 		model.setInitials(newModel.getInitials());
+		model.setGenericGoals(newModel.getGenericGoals());
 		
 		em.merge(model);
 		return model;

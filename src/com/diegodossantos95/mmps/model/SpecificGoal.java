@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,7 +34,7 @@ public class SpecificGoal {
 	@JsonIgnoreProperties({"model", "category","maturityLevel", "specificGoals", "genericGoals"})
 	private ProcessArea processArea;
 	
-	@OneToMany(mappedBy="specificGoal")
+	@OneToMany(mappedBy="specificGoal", fetch=FetchType.EAGER)
 	@JsonIgnoreProperties({"specificGoal"})
 	private List<SpecificPractice> specificPractices;
 
