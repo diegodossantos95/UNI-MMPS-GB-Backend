@@ -37,7 +37,7 @@ public class PersistenceJPAConfig {
 		Properties properties = new Properties();
 		properties.put(PersistenceUnitProperties.NON_JTA_DATASOURCE, ds);
 
-		properties.setProperty("eclipselink.ddl-generation", "create-tables");
+		properties.setProperty("eclipselink.ddl-generation", "create-or-extend-tables");
 		properties.setProperty("eclipselink.weaving", "false");
 		properties.setProperty("eclipselink.ddl-generation.output-mode", "both");
 		properties.setProperty("eclipselink.logging.level", "FINE");
