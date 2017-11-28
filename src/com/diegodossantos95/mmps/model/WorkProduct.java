@@ -27,7 +27,7 @@ public class WorkProduct {
 
 	@ManyToMany
 	@JoinTable
-	@JsonIgnoreProperties({"specificGoal"})
+	@JsonIgnoreProperties({"specificGoal", "workProducts"})
 	private List<SpecificPractice> specificPractices;
 	
 	public long getId() {

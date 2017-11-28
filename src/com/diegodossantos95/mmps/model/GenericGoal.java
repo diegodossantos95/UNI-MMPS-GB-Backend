@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class GenericGoal {
 
@@ -29,6 +31,7 @@ public class GenericGoal {
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnoreProperties({"model", "category","maturityLevel", "specificGoals", "genericGoals"})
 	private ProcessArea processArea;
 
 	public long getId() {

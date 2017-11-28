@@ -30,6 +30,7 @@ public class SpecificGoal {
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnoreProperties({"model", "category","maturityLevel", "specificGoals", "genericGoals"})
 	private ProcessArea processArea;
 	
 	@OneToMany(mappedBy="specificGoal")
