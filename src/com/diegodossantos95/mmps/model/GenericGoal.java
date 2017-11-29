@@ -2,20 +2,15 @@ package com.diegodossantos95.mmps.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class GenericGoal {
+public class GenericGoal extends AbstractModel {
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	private long id;
-	
 	@Column(nullable = false)
 	private String name;
 	
@@ -33,14 +28,6 @@ public class GenericGoal {
 	@JoinColumn
 	@JsonIgnoreProperties({"genericGoals"})
 	private Model model;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
