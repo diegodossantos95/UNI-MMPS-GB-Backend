@@ -2,16 +2,11 @@ package com.diegodossantos95.mmps.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class MaturityLevel {
+public class MaturityLevel extends AbstractModel {
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	private long id;
-	
 	@Column(nullable = false)
 	private String name;
 	
@@ -20,14 +15,6 @@ public class MaturityLevel {
 	
 	@Column(nullable = false)
 	private String initials;
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;

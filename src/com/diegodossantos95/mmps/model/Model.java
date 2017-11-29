@@ -4,17 +4,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-public class Model {
-	@Id
-	@GeneratedValue
-	private long id;
-	
+public class Model extends AbstractModel {
+	private static final long serialVersionUID = 1L;
+
 	@Column(nullable = false)
 	private String name;
 	
@@ -24,19 +21,13 @@ public class Model {
 	@Column(nullable = false)
 	private String initials;
 	
-	@OneToMany(mappedBy="model", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="model")
+	@JsonIgnoreProperties({"model"})
 	private List<ProcessArea> processAreas;
 	
-	@OneToMany(mappedBy="model", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="model")
+	@JsonIgnoreProperties({"model"})
 	private List<GenericGoal> genericGoals;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -70,11 +61,19 @@ public class Model {
 		this.processAreas = processAreas;
 	}
 	
+	public void addProcessArea(ProcessArea processArea){
+		this.processAreas.add(processArea);
+	}
+	
 	public List<GenericGoal> getGenericGoals() {
 		return genericGoals;
 	}
 
 	public void setGenericGoals(List<GenericGoal> genericGoals) {
 		this.genericGoals = genericGoals;
+	}
+	
+	public void addGenericGoal(GenericGoal genericGoal){
+		this.genericGoals.add(genericGoal);
 	}
 }

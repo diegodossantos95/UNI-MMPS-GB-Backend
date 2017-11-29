@@ -3,12 +3,12 @@ package com.diegodossantos95.mmps.application;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -23,9 +23,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class PersistenceJPAConfig {
 
+	@Autowired
+	private DataSource dataSource;
+	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() throws SQLException, NamingException {
-		DataSource ds = this.dataSource();
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException, NamingException {
+		DataSource ds = this.dataSource;
 
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(ds);
@@ -45,14 +48,6 @@ public class PersistenceJPAConfig {
 		em.setJpaProperties(properties);
 
 		return em;
-	}
-
-	@Bean
-	public DataSource dataSource() throws NamingException {
-		InitialContext ctx = new InitialContext();
-		DataSource dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDB");
-
-		return dataSource;
 	}
 
 	@Bean

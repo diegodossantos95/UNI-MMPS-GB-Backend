@@ -4,9 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -14,12 +11,9 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class ProcessArea {
+public class ProcessArea extends AbstractModel {
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	private long id;
-	
 	@Column(nullable = false)
 	private String name;
 	
@@ -42,17 +36,9 @@ public class ProcessArea {
 	@JoinColumn
 	private MaturityLevel maturityLevel;
 	
-	@OneToMany(mappedBy="processArea", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="processArea")
 	@JsonIgnoreProperties({"processArea"})
 	private List<SpecificGoal> specificGoals;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -108,5 +94,9 @@ public class ProcessArea {
 
 	public void setSpecificGoals(List<SpecificGoal> specificGoals) {
 		this.specificGoals = specificGoals;
+	}
+	
+	public void addSpecificGoal(SpecificGoal specificGoal){
+		this.specificGoals.add(specificGoal);
 	}
 }

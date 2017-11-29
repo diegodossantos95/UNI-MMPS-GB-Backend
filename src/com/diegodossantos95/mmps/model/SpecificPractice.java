@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -13,12 +11,9 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class SpecificPractice {
+public class SpecificPractice extends AbstractModel {
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	private long id;
-	
 	@Column(nullable = false)
 	private String name;
 	
@@ -36,14 +31,6 @@ public class SpecificPractice {
 	@ManyToMany(mappedBy="specificPractices")
 	@JsonIgnoreProperties({"specificPractices"})
 	private List<WorkProduct> workProducts;
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -83,5 +70,9 @@ public class SpecificPractice {
 
 	public void setWorkProducts(List<WorkProduct> workProducts) {
 		this.workProducts = workProducts;
+	}
+	
+	public void addWorkProduct(WorkProduct workProduct){
+		this.workProducts.add(workProduct);
 	}
 }
