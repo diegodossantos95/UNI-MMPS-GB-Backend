@@ -75,4 +75,8 @@ public class SpecificPractice extends AbstractModel {
 	public void addWorkProduct(WorkProduct workProduct){
 		this.workProducts.add(workProduct);
 	}
+	
+	public void removeWorkProduct(WorkProduct workProduct){
+		this.workProducts.remove(workProduct);
+	}
 }

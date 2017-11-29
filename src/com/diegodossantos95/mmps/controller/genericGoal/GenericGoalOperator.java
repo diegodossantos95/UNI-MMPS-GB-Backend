@@ -23,8 +23,11 @@ public class GenericGoalOperator extends AbstractModelOperator<GenericGoal, Gene
 		existingInstance.setName(updatedInstance.getName());
 		existingInstance.setDescription(updatedInstance.getDescription());
 		existingInstance.setInitials(updatedInstance.getInitials());
-		existingInstance.setModel(updatedInstance.getModel());
 		existingInstance.setCapabilityLevel(updatedInstance.getCapabilityLevel());
+		
+		modelService.removeGenericGoal(existingInstance);
+		existingInstance.setModel(updatedInstance.getModel());
+		modelService.saveGenericGoal(existingInstance);
 		
 		return existingInstance;
 	}
@@ -33,5 +36,11 @@ public class GenericGoalOperator extends AbstractModelOperator<GenericGoal, Gene
 	protected GenericGoal afterCreate(GenericGoal instance) {
 		modelService.saveGenericGoal(instance);
 		return super.afterCreate(instance);
+	}
+	
+	@Override
+	protected void afterDelete(GenericGoal instance) {
+		modelService.removeGenericGoal(instance);
+		super.afterDelete(instance);
 	}
 }

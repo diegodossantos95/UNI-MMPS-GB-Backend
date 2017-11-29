@@ -23,4 +23,9 @@ public class SpecificGoalService {
 		SpecificGoal specificGoal = this.getSpecificGoalById(specificPractice.getSpecificGoal().getId());
 		specificGoal.addSpecificPractice(specificPractice);
 	}
+	
+	public void removeSpecificPractice(SpecificPractice specificPractice){
+		SpecificGoal specificGoal = this.getSpecificGoalById(specificPractice.getSpecificGoal().getId());
+		specificGoal.removeSpecificPractice(specificPractice);
+	}
 }

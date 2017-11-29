@@ -65,6 +65,10 @@ public class Model extends AbstractModel {
 		this.processAreas.add(processArea);
 	}
 	
+	public void removeProcessArea(ProcessArea processArea){
+		this.processAreas.remove(processArea);
+	}
+	
 	public List<GenericGoal> getGenericGoals() {
 		return genericGoals;
 	}
@@ -75,5 +79,9 @@ public class Model extends AbstractModel {
 	
 	public void addGenericGoal(GenericGoal genericGoal){
 		this.genericGoals.add(genericGoal);
+	}
+	
+	public void removeGenericGoal(GenericGoal genericGoal){
+		this.genericGoals.remove(genericGoal);
 	}
 }

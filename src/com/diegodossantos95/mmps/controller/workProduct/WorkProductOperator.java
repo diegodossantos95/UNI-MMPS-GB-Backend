@@ -23,7 +23,10 @@ public class WorkProductOperator extends AbstractModelOperator<WorkProduct, Work
 	protected WorkProduct updateFields(WorkProduct existingInstance, WorkProduct updatedInstance) {
 		existingInstance.setName(updatedInstance.getName());
 		existingInstance.setLink(updatedInstance.getLink());
+		
+		specificPracticeService.removeWorkProduct(existingInstance);
 		existingInstance.setSpecificPractices(updatedInstance.getSpecificPractices());
+		specificPracticeService.saveWorkProduct(existingInstance);
 		
 		return existingInstance;
 	}
@@ -32,5 +35,11 @@ public class WorkProductOperator extends AbstractModelOperator<WorkProduct, Work
 	protected WorkProduct afterCreate(WorkProduct instance) {
 		specificPracticeService.saveWorkProduct(instance);
 		return super.afterCreate(instance);
+	}
+
+	@Override
+	protected void afterDelete(WorkProduct instance) {
+		specificPracticeService.removeWorkProduct(instance);
+		super.afterDelete(instance);
 	}
 }

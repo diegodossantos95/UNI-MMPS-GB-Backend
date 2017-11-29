@@ -23,8 +23,11 @@ public class SpecificGoalOperator extends AbstractModelOperator<SpecificGoal, Sp
 		existingInstance.setName(updatedInstance.getName());
 		existingInstance.setDescription(updatedInstance.getDescription());
 		existingInstance.setInitials(updatedInstance.getInitials());
-		existingInstance.setProcessArea(updatedInstance.getProcessArea());
 		
+		processAreaService.removeSpecificGoal(existingInstance);
+		existingInstance.setProcessArea(updatedInstance.getProcessArea());
+		processAreaService.saveSpecificGoal(existingInstance);
+
 		return existingInstance;
 	}
 	
@@ -32,5 +35,11 @@ public class SpecificGoalOperator extends AbstractModelOperator<SpecificGoal, Sp
 	protected SpecificGoal afterCreate(SpecificGoal instance) {
 		processAreaService.saveSpecificGoal(instance);
 		return super.afterCreate(instance);
+	}
+	
+	@Override
+	protected void afterDelete(SpecificGoal instance) {
+		processAreaService.removeSpecificGoal(instance);
+		super.afterDelete(instance);
 	}
 }

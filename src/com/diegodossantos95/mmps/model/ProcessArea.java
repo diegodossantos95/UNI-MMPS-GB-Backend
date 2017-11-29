@@ -99,4 +99,8 @@ public class ProcessArea extends AbstractModel {
 	public void addSpecificGoal(SpecificGoal specificGoal){
 		this.specificGoals.add(specificGoal);
 	}
+	
+	public void removeSpecificGoal(SpecificGoal specificGoal){
+		this.specificGoals.remove(specificGoal);
+	}
 }

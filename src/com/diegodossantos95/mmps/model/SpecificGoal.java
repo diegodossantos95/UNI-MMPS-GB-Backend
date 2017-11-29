@@ -75,4 +75,8 @@ public class SpecificGoal extends AbstractModel {
 	public void addSpecificPractice(SpecificPractice specificPractice){
 		this.specificPractices.add(specificPractice);
 	}
+	
+	public void removeSpecificPractice(SpecificPractice specificPractice){
+		this.specificPractices.remove(specificPractice);
+	}
 }

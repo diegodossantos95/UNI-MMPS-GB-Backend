@@ -24,11 +24,20 @@ public class SpecificPracticeOperator extends AbstractModelOperator<SpecificPrac
 		existingInstance.setName(updatedInstance.getName());
 		existingInstance.setDescription(updatedInstance.getDescription());
 		existingInstance.setInitials(updatedInstance.getInitials());
+		
+		specificGoalService.removeSpecificPractice(existingInstance);
 		existingInstance.setSpecificGoal(updatedInstance.getSpecificGoal());
+		specificGoalService.saveSpecificPractice(existingInstance);
 		
 		return existingInstance;
 	}
 	
+	@Override
+	protected void afterDelete(SpecificPractice instance) {
+		specificGoalService.removeSpecificPractice(instance);
+		super.afterDelete(instance);
+	}
+
 	@Override
 	protected SpecificPractice afterCreate(SpecificPractice instance) {
 		specificGoalService.saveSpecificPractice(instance);

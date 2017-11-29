@@ -23,4 +23,9 @@ public class ProcessAreaService {
 		ProcessArea processArea = this.getProcessAreaById(specificGoal.getProcessArea().getId());
 		processArea.addSpecificGoal(specificGoal);
 	}
+	
+	public void removeSpecificGoal(SpecificGoal specificGoal){
+		ProcessArea processArea = this.getProcessAreaById(specificGoal.getProcessArea().getId());
+		processArea.removeSpecificGoal(specificGoal);
+	}
 }

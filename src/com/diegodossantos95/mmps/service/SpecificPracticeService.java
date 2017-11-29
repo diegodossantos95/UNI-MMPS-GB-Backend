@@ -29,4 +29,13 @@ public class SpecificPracticeService {
 			specificPracticeDB.addWorkProduct(workProduct);
 		}
 	}
+	
+	public void removeWorkProduct(WorkProduct workProduct){
+		List<SpecificPractice> specificPractices = workProduct.getSpecificPractices();
+		
+		for(SpecificPractice specificPractice: specificPractices){
+			SpecificPractice specificPracticeDB = this.getSpecificPracticeById(specificPractice.getId());
+			specificPracticeDB.removeWorkProduct(workProduct);
+		}
+	}
 }

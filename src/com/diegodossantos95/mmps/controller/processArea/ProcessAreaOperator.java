@@ -10,6 +10,7 @@ import com.diegodossantos95.mmps.service.ModelService;
 
 @Component
 public class ProcessAreaOperator extends AbstractModelOperator<ProcessArea, ProcessAreaRepository> {
+
 	@Autowired
 	ModelService modelService;
 	
@@ -27,6 +28,10 @@ public class ProcessAreaOperator extends AbstractModelOperator<ProcessArea, Proc
 		existingInstance.setMaturityLevel(updatedInstance.getMaturityLevel());
 		existingInstance.setSpecificGoals(updatedInstance.getSpecificGoals());
 		
+		modelService.removeProcessArea(existingInstance);
+		existingInstance.setModel(updatedInstance.getModel());
+		modelService.saveProcessArea(existingInstance);
+		
 		return existingInstance;
 	}
 	
@@ -34,5 +39,11 @@ public class ProcessAreaOperator extends AbstractModelOperator<ProcessArea, Proc
 	protected ProcessArea afterCreate(ProcessArea instance) {
 		modelService.saveProcessArea(instance);
 		return super.afterCreate(instance);
+	}
+	
+	@Override
+	protected void afterDelete(ProcessArea instance) {
+		modelService.removeProcessArea(instance);
+		super.afterDelete(instance);
 	}
 }

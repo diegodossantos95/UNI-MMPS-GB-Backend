@@ -25,8 +25,18 @@ public class ModelService {
 		model.addGenericGoal(genericGoal);
 	}
 	
+	public void removeGenericGoal(GenericGoal genericGoal){
+		Model model = this.getModelById(genericGoal.getModel().getId());
+		model.removeGenericGoal(genericGoal);
+	}
+	
 	public void saveProcessArea(ProcessArea processArea){
 		Model model = this.getModelById(processArea.getModel().getId());
 		model.addProcessArea(processArea);
+	}
+	
+	public void removeProcessArea(ProcessArea processArea){
+		Model model = this.getModelById(processArea.getModel().getId());
+		model.removeProcessArea(processArea);
 	}
 }
