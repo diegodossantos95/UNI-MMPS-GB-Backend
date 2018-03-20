@@ -9,7 +9,7 @@ import com.diegodossantos95.mmps.controller.model.ModelQuery;
 import com.diegodossantos95.mmps.model.Model;
 
 @RestController
-@RequestMapping("/model")
+@RequestMapping("/model2")
 public class ModelServlet extends AbstractBaseRestService<Model, ModelOperator, ModelQuery> {
 
 	@Autowired
