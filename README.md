@@ -4,7 +4,7 @@ ferramenta que permita cadastrar e visualizar informações de um modelo de refe
 # Configurar ambiente local
 ## Pre-requisitos
 - Eclipse IDE
-- Java 8
+- Java 8 
 
 1. Configurar Eclipse with SCP SDK - [Configuring Eclipse with SAP Cloud Platform Tools for Java](https://www.sap.com/developer/tutorials/hcp-java-eclipse-setup.html)
 2. Clonar o repositorio para o ambiente local
